@@ -16,19 +16,7 @@ User Prompt → LLM Agent (Groq) → Tool Call → ⛔ GUARDRAIL ⛔ → Decisio
 
 ---
 
-## Live Demo
 
-| Environment | URL |
-|---|---|
-| Backend API | `http://100.26.9.228:8000` |
-| Frontend | `http://action-guardrail-frontend-202607042152.s3-website-us-east-1.amazonaws.com` |
-| API Docs | `http://100.26.9.228:8000/docs` |
-| Health Check | `http://100.26.9.228:8000/health` |
-| Public Demo | `http://action-guardrail-frontend-202607042152.s3-website-us-east-1.amazonaws.com/demo` |
-
-> Update these URLs after AWS deployment.
-
----
 
 ## The Three Policy Outcomes
 
@@ -51,7 +39,7 @@ User Prompt → LLM Agent (Groq) → Tool Call → ⛔ GUARDRAIL ⛔ → Decisio
 | Auth | JWT + RBAC (admin / reviewer / auditor) |
 | Frontend | React 19 + Vite + Tailwind CSS |
 | Container | Docker + Docker Compose |
-| Cloud | AWS ECS Fargate + ECR + ALB + S3 + CloudFront |
+
 
 ---
 
@@ -246,28 +234,7 @@ Policies can be updated live via the UI or API without restarting.
 
 ---
 
-## AWS Deployment
 
-See `deploy/` folder for automated deployment scripts.
-
-**Quick deploy:**
-```bash
-# 1. Configure AWS CLI
-aws configure
-
-# 2. Deploy backend to ECS
-chmod +x deploy/ecr_push.sh deploy/ecs_deploy.sh
-./deploy/ecr_push.sh
-./deploy/ecs_deploy.sh
-
-# 3. Deploy frontend to S3
-chmod +x deploy/frontend_deploy.sh
-./deploy/frontend_deploy.sh
-```
-
-Full instructions: [deploy/README_DEPLOY.md](deploy/README_DEPLOY.md)
-
----
 
 ## Environment Variables
 
@@ -291,6 +258,4 @@ Full instructions: [deploy/README_DEPLOY.md](deploy/README_DEPLOY.md)
 - [x] Persistent state (database)
 - [x] Docker containerized
 - [x] Environment-driven configuration (no hardcoded secrets)
-- [x] Deployed to AWS ECS Fargate
-- [x] Frontend on AWS S3
-- [x] Public demo page (no login required)
+- [x] Local & Docker-based testing complete
