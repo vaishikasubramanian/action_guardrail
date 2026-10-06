@@ -1,0 +1,35 @@
+# Action Guardrail — Declarative Policy Rules
+# These rules define what happens when an AI agent tries to execute a tool call.
+# Decisions: block | require_hitl | log_and_allow | allow
+# This file is the human-readable source of truth for policy configuration.
+
+rules:
+
+  - id: RULE001
+    name: Block Bulk Database Delete
+    description: Prevents AI agents from deleting large numbers of records autonomously
+    action: delete_records
+    condition:
+      field: record_count
+      operator: greater_than
+      value: 100
+    decision: block
+
+  - id: RULE002
+    name: External Email Requires Human Approval
+    description: Any email sent outside the company domain must be reviewed by a human
+    action: send_email
+    condition:
+      field: recipient
+      operator: external_email
+    decision: require_hitl
+
+  - id: RULE003
+    name: Confidential File Access Logging
+    description: Reading confidential files is allowed but always creates an audit record
+    action: read_file
+    condition:
+      field: path
+      operator: contains
+      value: confidential
+    decision: log_and_allow

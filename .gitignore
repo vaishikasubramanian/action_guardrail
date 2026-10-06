@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+env/
+*.egg-info/
+
+# Database — never commit real data
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment — never commit secrets
+.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# AWS deployment output
+deploy/deployment_output.txt
+deploy/config.sh
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Migration scripts (one-time use)
+add_agent_name_column.py
+add_enabled_column.py
+check_users.py
