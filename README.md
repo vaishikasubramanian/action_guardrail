@@ -1,8 +1,5 @@
 # Action Guardrail
 ### AI Governance Platform | Pre-execution Agent Action Enforcement
-
-> **CIT AI Engineers Task** | Aivar Innovations | June 2026
-
 ---
 
 ## What This Is
